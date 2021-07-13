@@ -11,15 +11,6 @@ import Foundation
 /// A class of types that should be fetchable via FetchRequests
 public typealias FetchableObject = NSObject & FetchableObjectProtocol
 
-/// A class of types whose instances hold the value of an entity with stable identity.
-/// This exists purely to support targetting OSes that bundle Swift before v5.1
-public protocol FRIdentifiable {
-    /// A type representing the stable identity of the entity associated with `self`.
-    associatedtype ID: Hashable
-    /// The stable identity of the entity associated with `self`.
-    var id: ID { get }
-}
-
 /// A class of types whose instances hold raw data of that entity
 public protocol RawDataRepresentable {
     associatedtype RawData
@@ -32,7 +23,7 @@ public protocol RawDataRepresentable {
 }
 
 /// A class of types that should be fetchable via FetchRequests
-public protocol FetchableObjectProtocol: AnyObject, FRIdentifiable, RawDataRepresentable
+public protocol FetchableObjectProtocol: AnyObject, Identifiable, RawDataRepresentable
     where ID: Comparable
 {
     /// Has this object been marked as deleted?

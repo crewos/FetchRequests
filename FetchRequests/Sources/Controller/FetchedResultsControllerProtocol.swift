@@ -7,12 +7,19 @@
 //
 
 import Foundation
+import Combine
 
-internal protocol InternalFetchResultsControllerProtocol: AnyObject, FetchedResultsControllerProtocol {
+internal protocol InternalFetchResultsControllerProtocol: FetchedResultsControllerProtocol {
     func manuallyInsert(objects: [FetchedObject], emitChanges: Bool)
 }
 
-public protocol FetchedResultsControllerProtocol {
+public protocol DoublyObservableObject: ObservableObject {
+    associatedtype ObjectDidChangePublisher: Publisher where ObjectWillChangePublisher.Output == ObjectDidChangePublisher.Output, ObjectWillChangePublisher.Failure == ObjectDidChangePublisher.Failure
+
+    var objectDidChange: ObjectDidChangePublisher { get }
+}
+
+public protocol FetchedResultsControllerProtocol: DoublyObservableObject {
     associatedtype FetchedObject: FetchableObject
     typealias SectionNameKeyPath = KeyPath<FetchedObject, String>
     typealias Section = FetchedResultsSection<FetchedObject>

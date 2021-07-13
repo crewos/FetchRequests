@@ -90,7 +90,7 @@ struct MembersView: View {
 
 ## Requirements
 
-- iOS 12+ / macOS 10.14+ / tvOS 12+ / watchOS 5+
+- iOS 13+ / macOS 10.15+ / tvOS 13+ / watchOS 6+
 - Xcode 12+
 - Swift 5+
 
@@ -107,7 +107,7 @@ struct MembersView: View {
 Install with [CocoaPods](http://cocoapods.org) by specifying the following in your `Podfile`:
 
 ```ruby
-pod 'FetchRequests', '~> 3.0'
+pod 'FetchRequests', '~> 4.0'
 ```
 
 ### Carthage
@@ -115,7 +115,7 @@ pod 'FetchRequests', '~> 3.0'
 Install with [Carthage](https://github.com/Carthage/Carthage) by specify the following in your `Cartfile`:
 
 ```
-github "crewos/FetchRequests" ~> 3.0
+github "crewos/FetchRequests" ~> 4.0
 ```
 
 ### Swift Package Manager
@@ -124,7 +124,7 @@ Install with [Swift Package Manager](https://swift.org/package-manager/) by addi
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/crewos/FetchRequests.git", from: "3.0.0")
+    .package(url: "https://github.com/crewos/FetchRequests.git", from: "4.0.0")
 ]
 ```
 

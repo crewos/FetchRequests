@@ -36,7 +36,7 @@ public protocol CollapsibleSectionsFetchedResultsControllerDelegate: AnyObject {
     )
 }
 
-public struct CollapsibleResultsSection<FetchedObject: FetchableObject>: Equatable {
+public struct CollapsibleResultsSection<FetchedObject: FetchableObject>: Equatable, Identifiable {
     fileprivate let section: FetchedResultsSection<FetchedObject>
     private let config: SectionCollapseConfig?
     public let isCollapsed: Bool
@@ -45,6 +45,10 @@ public struct CollapsibleResultsSection<FetchedObject: FetchableObject>: Equatab
 
     public var allObjects: [FetchedObject] {
         return section.objects
+    }
+
+    public var id: String {
+        return section.id
     }
 
     public var name: String {
